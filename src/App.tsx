@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import bear from "src/photos/table_bear.jpg";
+import bear from "photos/table_bear.jpg";
 
 function App(): JSX.Element {
     return (
