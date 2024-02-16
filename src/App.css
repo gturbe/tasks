@@ -42,6 +42,7 @@
     width: 50px;
     height: 100px;
     background-color: #a21616;
+    border: 10px solid black;
     font-size: calc(10px + 2vmin);
     color: black;
 }
