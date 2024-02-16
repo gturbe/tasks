@@ -6,7 +6,7 @@ import bear from "./photos/table_bear.jpg";
 function App(): JSX.Element {
     return (
         <div className="App">
-            <h1>This is a new header</h1>
+            <h1 className="App-header">This is a new header</h1>
             <header className="App-header">
                 UD CISC275 with React Hooks and TypeScript - Gregory Turbe
             </header>
