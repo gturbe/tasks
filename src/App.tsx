@@ -6,6 +6,7 @@ import bear from "./photos/table_bear.jpg";
 function App(): JSX.Element {
     return (
         <div className="App">
+            <h1>This is a new header</h1>
             <header className="App-header">
                 UD CISC275 with React Hooks and TypeScript - Gregory Turbe
             </header>
@@ -15,6 +16,7 @@ function App(): JSX.Element {
             </p>
             <img src={bear} alt="cool bear sitting at a table" />
             <ul>
+                Bear Species
                 <li>Brown Bear</li>
                 <li>Black Bear</li>
                 <li>Polar bear</li>
