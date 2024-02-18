@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-parens */
 /**
  * Consumes a single temperature in Fahrenheit (a number) and converts to Celsius
  * using this formula:
@@ -17,8 +18,7 @@ export function add3(first: number, second: number, third: number): number {
     for (let i = 0; i < 3; i++) {
         if (hold > 0) {
             sum += hold;
-        }
-        // eslint-disable-next-line prettier/prettier
+        } // eslint-disable-next-line prettier/prettier
         i === 0 ? (hold = second) : (hold = third);
     }
     return sum;
