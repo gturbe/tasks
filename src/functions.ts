@@ -18,6 +18,7 @@ export function add3(first: number, second: number, third: number): number {
         if (hold > 0) {
             sum += hold;
         }
+        // eslint-disable-next-line prettier/prettier
         i === 0 ? (hold = second) : (hold = third);
     }
     return sum;
@@ -37,6 +38,7 @@ export function shout(message: string): string {
  */
 export function isQuestion(message: string): boolean {
     let answer = false;
+    // eslint-disable-next-line prettier/prettier
     message.charAt(message.length - 1) === "?"
         ? (answer = true)
         : (answer = false);
