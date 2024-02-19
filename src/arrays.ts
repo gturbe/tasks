@@ -23,7 +23,8 @@ export function bookEndList(numbers: number[]): number[] {
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    return numbers;
+    const tripleNumber = numbers.map((digit: number): number => digit * 3);
+    return tripleNumber;
 }
 
 /**
@@ -51,7 +52,7 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    const newMessage = [];
 };
 
 /**
@@ -59,7 +60,14 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    const length = words.length;
+    let count = 0;
+    for (let i = 0; i < length; i++) {
+        if (words[i].length < 4) {
+            count += 1;
+        }
+    }
+    return count;
 }
 
 /**
@@ -68,7 +76,15 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    const length = colors.length;
+    if (length === 0) {
+        return true;
+    }
+    const RGB = colors.every(
+        (color: string): boolean =>
+            color === "red" || color === "blue" || color === "green"
+    );
+    return RGB;
 }
 
 /**
@@ -79,7 +95,14 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    let copy = [...addends];
+    const length = addends.length;
+    const total = copy.reduce((partialSum, a) => partialSum + a, 0);
+    if (length === 0) {
+        return "0=0";
+    }
+    const addend = copy.join(" + ");
+    return total.toString() + " = " + addend;
 }
 
 /**
