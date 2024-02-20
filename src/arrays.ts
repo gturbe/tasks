@@ -32,7 +32,12 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    const words = [...numbers];
+    const ints = words.map((word: string): number => parseInt(word));
+    const noNaN = ints.map((int: number): number =>
+        isNaN(int) ? (int = 0) : int
+    );
+    return noNaN;
 }
 
 /**
@@ -95,7 +100,7 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    let copy = [...addends];
+    const copy = [...addends];
     const length = addends.length;
     const total = copy.reduce((partialSum, a) => partialSum + a, 0);
     if (length === 0) {
@@ -115,5 +120,7 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    const copy: number[] = values;
+
+    return copy;
 }
