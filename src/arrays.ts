@@ -6,14 +6,15 @@
  */
 export function bookEndList(numbers: number[]): number[] {
     const newNum: number[] = [];
-    if (numbers.length === 0) {
+    const numLength = numbers.length;
+    if (numLength === 0) {
         return newNum;
     }
     newNum.push(numbers[0]);
-    if (numbers.length === 1) {
+    if (numLength === 1) {
         newNum.push(numbers[0]);
     } else {
-        newNum.push(numbers.length - 1);
+        newNum.push(numbers[numLength - 1]);
     }
     return newNum;
 }
@@ -48,7 +49,15 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    return [];
+    const words = [...amounts];
+    const noDollar = words.map((word: string): string =>
+        word[0] === "$" ? word.slice(1) : word
+    );
+    const ints = noDollar.map((word: string): number => parseInt(word));
+    const noNaN = ints.map((int: number): number =>
+        isNaN(int) ? (int = 0) : int
+    );
+    return noNaN;
 };
 
 /**
@@ -57,7 +66,14 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    const newMessage = [];
+    const newMessage = [...messages];
+    const noQuestion = newMessage.filter(
+        (message: string): boolean => message[-1] === "?"
+    );
+    const upperCase = noQuestion.map((message: string): string =>
+        message[-1] === "!" ? message.toUpperCase() : message
+    );
+    return upperCase;
 };
 
 /**
@@ -106,8 +122,8 @@ export function makeMath(addends: number[]): string {
     if (length === 0) {
         return "0=0";
     }
-    const addend = copy.join(" + ");
-    return total.toString() + " = " + addend;
+    const addend = copy.join("+");
+    return total.toString() + "=" + addend;
 }
 
 /**
