@@ -68,10 +68,10 @@ export const removeDollars = (amounts: string[]): number[] => {
 export const shoutIfExclaiming = (messages: string[]): string[] => {
     const newMessage = [...messages];
     const noQuestion = newMessage.filter(
-        (message: string): boolean => message[-1] === "?"
+        (message: string): boolean => message[message.length - 1] !== "?"
     );
     const upperCase = noQuestion.map((message: string): string =>
-        message[-1] === "!" ? message.toUpperCase() : message
+        message[message.length - 1] === "!" ? message.toUpperCase() : message
     );
     return upperCase;
 };
@@ -137,6 +137,15 @@ export function makeMath(addends: number[]): string {
  */
 export function injectPositive(values: number[]): number[] {
     const copy: number[] = values;
-
+    if (copy.every((cpy: number): boolean => cpy > 0)) {
+        const posSum = copy.reduce(
+            (currentTotal: number, num: number) => currentTotal + num,
+            0
+        );
+        copy.push(posSum);
+    }
+    //I didnt have the time to figure out the insert after negative
+    //IDK how to get the sum of just the #'s before the negative
+    //I know I have to use splice in order to insert it at the correct index
     return copy;
 }
