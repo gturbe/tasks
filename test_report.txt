@@ -12,18 +12,71 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 PASS src/functions.test.ts
-PASS src/App.test.tsx
+FAIL src/arrays.test.ts
+  ● Testing the array functions › Testing the injectPositive function
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 0
+
+      Array [
+        100,
+        199,
+        1,
+        -5,
+    -   300,
+        7,
+        3,
+      ]
+
+      267 |         expect(injectPositive(NUMBERS_3)).toEqual([5, 5]);
+      268 |         expect(injectPositive(NUMBERS_4)).toEqual([0]);
+    > 269 |         expect(injectPositive(NUMBERS_5)).toEqual([100, 199, 1, -5, 300, 7, 3]);
+          |                                           ^
+      270 |         expect(injectPositive(NUMBERS_6)).toEqual([-100, 0, -200, 100, 200]);
+      271 |         expect(injectPositive(NUMBERS_7)).toEqual([199, 1, 550, 50, 200, 1000]);
+      272 |     });
+
+      at Object.<anonymous> (src/arrays.test.ts:269:43)
+
+  ● Testing the array functions › Testing the injectPositive function
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 0
+    + Received  + 1
+
+      Array [
+        1,
+        2,
+        3,
+    +   6,
+      ]
+
+      26 |     // If you fail these, you aren't using map/filter/reduce/etc. properly!
+      27 |     afterEach(() => {
+    > 28 |         expect(NUMBERS_1).toEqual([1, 2, 3]);
+         |                           ^
+      29 |         expect(NUMBERS_2).toEqual([100, 300, 200]);
+      30 |         expect(NUMBERS_3).toEqual([5]);
+      31 |         expect(NUMBERS_4).toEqual([]);
+
+      at Object.<anonymous> (src/arrays.test.ts:28:27)
+
 PASS src/HtmlCss.test.tsx
+PASS src/App.test.tsx
 --------------|---------|----------|---------|---------|-------------------
 File          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------|---------|----------|---------|---------|-------------------
 All files     |     100 |      100 |     100 |     100 |                   
  App.tsx      |     100 |      100 |     100 |     100 |                   
+ arrays.ts    |     100 |      100 |     100 |     100 |                   
  functions.ts |     100 |      100 |     100 |     100 |                   
 --------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 3 passed, 3 total
-Tests:       13 passed, 13 total
+Test Suites: 1 failed, 3 passed, 4 total
+Tests:       1 failed, 21 passed, 22 total
 Snapshots:   0 total
-Time:        2.569 s
+Time:        2.888 s
 Ran all test suites.
