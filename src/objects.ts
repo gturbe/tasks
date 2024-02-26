@@ -30,9 +30,14 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
-    const newQuestion = question.expected.trim().toLowerCase;
+    const newQuestion = {
+        ...question,
+        options: [...question.options],
+        expected: question.expected.trim()
+    };
+    newQuestion.expected = newQuestion.expected.toLowerCase;
     const newAnswer = answer.trim().toLowerCase;
-    if (newQuestion === newAnswer) {
+    if (newQuestion.expected === newAnswer) {
         return true;
     } else {
         return false;
@@ -66,7 +71,7 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
-    return question.id + ": " + question.name.substring(0, 9);
+    return question.id + ": " + question.name.substring(0, 10);
 }
 
 /**
@@ -100,7 +105,11 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    const newQuestion = { ...question, options: [...question.options] };
+    const newQuestion = {
+        ...question,
+        options: [...question.options],
+        name: newName
+    };
     return newQuestion;
 }
 
@@ -129,7 +138,8 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
     const newQuestion = {
         ...oldQuestion,
         name: "Copy of " + oldQuestion.name,
-        published: false
+        published: false,
+        id: id
     };
     return newQuestion;
 }
