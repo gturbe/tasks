@@ -30,14 +30,9 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
-    const newQuestion = {
-        ...question,
-        options: [...question.options],
-        expected: question.expected.trim()
-    };
-    newQuestion.expected = newQuestion.expected.toLowerCase;
-    const newAnswer = answer.trim().toLowerCase;
-    if (newQuestion.expected === newAnswer) {
+    const newQuestionExpected = question.expected.trim().toLowerCase();
+    const newAnswer = answer.trim().toLowerCase();
+    if (newQuestionExpected === newAnswer) {
         return true;
     } else {
         return false;
@@ -92,7 +87,7 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    let formatted = "#: " + question.name;
+    let formatted = "# " + question.name;
     formatted += "\n" + question.body;
     if (question.type === "multiple_choice_question") {
         formatted += "\n- " + question.options.join("\n- ");
@@ -173,5 +168,12 @@ export function mergeQuestion(
     contentQuestion: Question,
     { points }: { points: number }
 ): Question {
-    return contentQuestion;
+    const newQuestion = {
+        ...contentQuestion,
+        id: id,
+        name: name,
+        points: points,
+        published: false
+    };
+    return newQuestion;
 }
