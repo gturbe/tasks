@@ -20,9 +20,9 @@ export function getPublishedQuestions(questions: Question[]): Question[] {
 export function getNonEmptyQuestions(questions: Question[]): Question[] {
     const nonEQuest = questions.filter(
         (question: Question): boolean =>
-            question.body === "" &&
-            question.expected === "" &&
-            question.options.length === 0
+            question.body !== "" &&
+            question.expected !== "" &&
+            question.options.length !== 0
     );
     return nonEQuest;
 }
