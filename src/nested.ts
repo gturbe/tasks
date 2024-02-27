@@ -6,7 +6,10 @@ import { Question, QuestionType } from "./interfaces/question";
  * that are `published`.
  */
 export function getPublishedQuestions(questions: Question[]): Question[] {
-    return [];
+    const pubQuests = questions.filter(
+        (question: Question): boolean => question.published
+    );
+    return pubQuests;
 }
 
 /**
@@ -15,7 +18,13 @@ export function getPublishedQuestions(questions: Question[]): Question[] {
  * `expected`, and an empty array for its `options`.
  */
 export function getNonEmptyQuestions(questions: Question[]): Question[] {
-    return [];
+    const nonEQuest = questions.filter(
+        (question: Question): boolean =>
+            question.body === "" &&
+            question.expected === "" &&
+            question.options.length === 0
+    );
+    return nonEQuest;
 }
 
 /***
@@ -34,7 +43,10 @@ export function findQuestion(
  * with the given `id`.
  */
 export function removeQuestion(questions: Question[], id: number): Question[] {
-    return [];
+    const noQuestion = questions.filter(
+        (question: Question): boolean => question.id !== id
+    );
+    return noQuestion;
 }
 
 /***
@@ -42,21 +54,31 @@ export function removeQuestion(questions: Question[], id: number): Question[] {
  * questions, as an array.
  */
 export function getNames(questions: Question[]): string[] {
-    return [];
+    const onlyNames = questions.map(
+        (question: Question): string => question.name
+    );
+    return onlyNames;
 }
 
 /***
  * Consumes an array of questions and returns the sum total of all their points added together.
  */
 export function sumPoints(questions: Question[]): number {
-    return 0;
+    const sum = questions.reduce(
+        (currentSum: number, question: Question) =>
+            currentSum + question.points,
+        0
+    );
+    return sum;
 }
 
 /***
  * Consumes an array of questions and returns the sum total of the PUBLISHED questions.
  */
 export function sumPublishedPoints(questions: Question[]): number {
-    return 0;
+    const onlyPublished = getPublishedQuestions(questions);
+    const sum = sumPoints(onlyPublished);
+    return sum;
 }
 
 /***
