@@ -30,8 +30,9 @@ export function TwoDice(): JSX.Element {
             >
                 Roll Right
             </Button>
-            {leftDie === rightDie && leftDie === 1} ? <span>You Lose!</span> :
-            <span>You Win!</span>
+            {leftDie === rightDie && leftDie === 1} ? <span>You Lose!</span> :{" "}
+            {leftDie === rightDie} ? <span>You Win!</span> :{" "}
+            <span>Continue Playing</span>
         </div>
     );
 }
