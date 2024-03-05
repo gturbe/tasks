@@ -8,16 +8,10 @@ export function StartAttempt(): JSX.Element {
         setProgress(true);
         changeNumAttempts(attempts - 1);
     }
-    function stopQuiz(): void {
-        setProgress(false);
-    }
-    function increaseAttempts(): void {
-        changeNumAttempts(attempts + 1);
-    }
     return (
         <div>
             <Button
-                onClick={() => setProgress(true)}
+                onClick={() => startQuiz}
                 disabled={inProgress || attempts === 0}
             >
                 Start Quiz
