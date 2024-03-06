@@ -16,23 +16,38 @@ export function TwoDice(): JSX.Element {
     const [rightDie, setRightDie] = useState<number>(2);
     return (
         <div>
-            left-die: <span>{setLeftDie(d6())}</span>
-            right-die: <span>{setRightDie(d6())}</span>
+            Left Die:
+            <span data-testid="left-die">
+                {() => setLeftDie(d6())}
+                {leftDie}
+            </span>
+            Right Die:
+            <span data-testid="right-die">
+                {() => setRightDie((leftDie + d6()) % 7)}
+                {rightDie}
+            </span>
             <Button
-                onClick={() => setLeftDie(d6())}
+                onClick={() => setLeftDie((leftDie + d6()) % 7)}
                 disabled={leftDie === rightDie}
             >
-                Roll Left
+                Roll Left Die
             </Button>
             <Button
-                onClick={() => setRightDie(d6())}
+                onClick={() => setRightDie((rightDie + d6()) % 7)}
                 disabled={leftDie === rightDie}
             >
-                Roll Right
+                Roll Right Die
             </Button>
-            {leftDie === rightDie && leftDie === 1} ? <span>You Lose!</span> :{" "}
-            {leftDie === rightDie} ? <span>You Win!</span> :{" "}
-            <span>Continue Playing</span>
+            {leftDie === rightDie && leftDie === 1 ? (
+                <span>You Lose!</span>
+            ) : (
+                ""
+            )}
+            {leftDie === rightDie && leftDie !== 1 ? (
+                <span>You Win!</span>
+            ) : (
+                <span>Continue Playing</span>
+            )}
         </div>
     );
 }
