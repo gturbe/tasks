@@ -18,37 +18,27 @@ export function TwoDice(): JSX.Element {
     return (
         <div>
             Left Die:
-            <span data-testid="left-die">
-                {() => setLeftDie(d6())}
-                {leftDie}
-            </span>
+            <span data-testid="left-die">{leftDie}</span>
             Right Die:
-            <span data-testid="right-die">
-                {() => setRightDie((leftDie + d6()) % 7)}
-                {rightDie}
-            </span>
+            <span data-testid="right-die">{rightDie}</span>
             <Button
-                onClick={() => setLeftDie((leftDie + d6()) % 7)}
+                onClick={() => setLeftDie(d6())}
                 disabled={leftDie === rightDie}
             >
                 Roll Left Die
             </Button>
             <Button
-                onClick={() => setRightDie((rightDie + d6()) % 7)}
+                onClick={() => setRightDie(d6())}
                 disabled={leftDie === rightDie}
             >
                 Roll Right Die
             </Button>
             {leftDie === rightDie && leftDie === 1 ? (
                 <span>You Lose!</span>
-            ) : (
-                ""
-            )}
+            ) : null}
             {leftDie === rightDie && leftDie !== 1 ? (
                 <span>You Win!</span>
-            ) : (
-                <span>Continue Playing</span>
-            )}
+            ) : null}
         </div>
     );
 }
