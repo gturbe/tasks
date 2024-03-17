@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Badge } from "react-bootstrap";
 const COLORS = [
     "red",
     "blue",
@@ -19,20 +19,32 @@ export function ChangeColor(): JSX.Element {
     return (
         <div>
             <h3>Change Color</h3>
-            {COLORS.map((color: string) => (
+            {COLORS.map((color) => (
                 <Form.Check
+                    key={color}
                     inline
                     type="radio"
                     name="color"
                     onChange={updateColor}
-                    id="color-select "
-                    label={color}
+                    id={`color-select-${color}`}
+                    label={
+                        <Badge style={{ backgroundColor: color }}>
+                            {color}
+                        </Badge>
+                    }
                     value={color}
-                    checked={COLORS.includes(color)}
-                    key={color}
+                    checked={chosenColor === color}
                 />
             ))}
-            <div>You have chosen {chosenColor}</div>
+            <div>
+                You have chosen{" "}
+                <Badge
+                    style={{ backgroundColor: chosenColor }}
+                    data-testid="colored-box"
+                >
+                    {chosenColor}
+                </Badge>
+            </div>
         </div>
     );
 }
