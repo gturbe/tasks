@@ -28,9 +28,7 @@ export function ChangeColor(): JSX.Element {
                     onChange={updateColor}
                     id={`color-select-${color}`}
                     label={
-                        <Badge style={{ backgroundColor: color }}>
-                            {color}
-                        </Badge>
+                        <span style={{ backgroundColor: color }}>{color}</span>
                     }
                     value={color}
                     checked={chosenColor === color}
@@ -38,12 +36,12 @@ export function ChangeColor(): JSX.Element {
             ))}
             <div>
                 You have chosen{" "}
-                <Badge
+                <span
                     style={{ backgroundColor: chosenColor }}
                     data-testid="colored-box"
                 >
                     {chosenColor}
-                </Badge>
+                </span>
             </div>
         </div>
     );
