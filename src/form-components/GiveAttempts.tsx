@@ -27,7 +27,9 @@ export function GiveAttempts(): JSX.Element {
             </Button>
             <Button
                 onClick={() =>
-                    setGivenAttempts(requestAttempts + givenAttempts)
+                    isNaN(requestAttempts)
+                        ? setGivenAttempts(givenAttempts)
+                        : setGivenAttempts(givenAttempts + requestAttempts)
                 }
             >
                 gain
