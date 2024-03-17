@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Badge } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 const COLORS = [
     "red",
     "blue",
