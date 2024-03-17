@@ -15,13 +15,14 @@ PASS src/objects.test.ts
 PASS src/nested.test.ts
 PASS src/components/StartAttempt.test.tsx
 PASS src/form-components/MultipleChoiceQuestion.test.tsx
-PASS src/functions.test.ts
 PASS src/bad-components/DoubleHalf.test.tsx
+PASS src/functions.test.ts
 PASS src/bad-components/ChooseTeam.test.tsx
-PASS src/components/ChangeType.test.tsx
 PASS src/form-components/CheckAnswer.test.tsx
 PASS src/form-components/EditMode.test.tsx
+PASS src/components/ChangeType.test.tsx
 PASS src/components/CycleHoliday.test.tsx
+PASS src/form-components/ChangeColor.test.tsx
 PASS src/form-components/GiveAttempts.test.tsx
   ● Console
 
@@ -43,7 +44,6 @@ PASS src/form-components/GiveAttempts.test.tsx
       at diffProperties (node_modules/react-dom/cjs/react-dom.development.js:9172:5)
       at prepareUpdate (node_modules/react-dom/cjs/react-dom.development.js:10215:10)
 
-PASS src/form-components/ChangeColor.test.tsx
 PASS src/components/Counter.test.tsx
 PASS src/components/RevealAnswer.test.tsx
 PASS src/bad-components/ColoredBox.test.tsx
@@ -85,5 +85,5 @@ All files                    |   76.44 |    70.21 |    81.1 |   78.06 |
 Test Suites: 18 passed, 18 total
 Tests:       104 passed, 104 total
 Snapshots:   0 total
-Time:        7.187 s
+Time:        7.37 s
 Ran all test suites.
