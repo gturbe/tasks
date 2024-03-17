@@ -19,7 +19,7 @@ import { ChangeColor } from "./form-components/ChangeColor";
 function App(): JSX.Element {
     return (
         <div className="App">
-            <h1 className="App-header">This is a new header</h1>
+            <h1 className="App-header">Hello World</h1>
             <header className="App-header">
                 UD CISC275 with React Hooks and TypeScript - Gregory Turbe
             </header>
